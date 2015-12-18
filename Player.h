@@ -1,3 +1,7 @@
+#ifndef PLAYER
+#define PLAYER
+
+
 #include <string>
 #include <sstream>
 
@@ -12,3 +16,5 @@ public:
 	Player(int);
 };
 
+
+#endif

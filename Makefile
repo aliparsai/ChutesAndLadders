@@ -1,10 +1,10 @@
 CXXFLAGS =	-O2 -g -Wall -fmessage-length=0
 
-OBJS =		ShootsAndLadders.o Field.o Ladder.o Shoot.o Player.o Transporter.o 
+OBJS =		Player.o Transporter.o Ladder.o Chute.o Field.o ChutesAndLadders.o    
 
 LIBS =
 
-TARGET =	ShootsAndLadders
+TARGET =	ChutesAndLadders
 
 $(TARGET):	$(OBJS)
 	$(CXX) -o $(TARGET) $(OBJS) $(LIBS)

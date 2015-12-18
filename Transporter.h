@@ -1,3 +1,6 @@
+#ifndef TRANSPORTER
+#define TRANSPORTER
+
 #include <cstdlib>
 
 
@@ -11,3 +14,4 @@ public:
 
 };
 
+#endif

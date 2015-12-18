@@ -5,14 +5,14 @@
  *      Author: perham
  */
 
-#include "Shoot.h"
+#include "Chute.h"
 
-bool Shoot::operator==(const Shoot& s)
+bool Chute::operator==(const Chute& s)
 												{
 		return (s.sourcePosition == sourcePosition && s.targetPosition == targetPosition);
 												}
 
-void Shoot::assignRandom()
+void Chute::assignRandom()
 {
 	Transporter::assignRandom();
 

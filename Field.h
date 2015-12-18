@@ -1,20 +1,25 @@
+#ifndef FIELD
+#define FIELD
+
+
+
 #include <iostream>
 #include <assert.h>
 #include <cstdlib>
 
+#include "Chute.h"
 #include "Transporter.h"
-#include "Shoot.h"
 #include "Ladder.h"
 #include "Player.h"
 
 
 class Field {
 public:
-	int shootCount;
+	int chuteCount;
 	int ladderCount;
 	int turn;
 
-	Shoot *shoots;
+	Chute *chutes;
 	Ladder *ladders;
 	Player p1, p2;
 
@@ -29,4 +34,6 @@ public:
 };
 
 
+
+#endif
 

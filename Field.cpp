@@ -32,28 +32,28 @@ Field::Field()
 	int *targetPositions;
 
 	turn = 1;
-	shootCount = 5;
+	chuteCount = 5;
 	ladderCount = 4;
 
 	p1 = Player(1);
 	p2 = Player(2);
 
-	shoots = new Shoot [shootCount];
+	chutes = new Chute [chuteCount];
 	ladders = new Ladder [ladderCount];
-	sourcePositions = new int [shootCount+ladderCount];
-	targetPositions = new int [shootCount+ladderCount];
+	sourcePositions = new int [chuteCount+ladderCount];
+	targetPositions = new int [chuteCount+ladderCount];
 
-	for(i=0; i<shootCount; i++)
+	for(i=0; i<chuteCount; i++)
 	{
-		shoots[i].assignRandom();
-		sourcePositions[i] = shoots[i].sourcePosition;
-		targetPositions[i] = shoots[i].targetPosition;
+		chutes[i].assignRandom();
+		sourcePositions[i] = chutes[i].sourcePosition;
+		targetPositions[i] = chutes[i].targetPosition;
 
 		while(checkDuplicate<int>(sourcePositions,i,sourcePositions[i]) || checkDuplicate<int>(targetPositions,i,targetPositions[i]))
 		{
-			shoots[i].assignRandom();
-			sourcePositions[i] = shoots[i].sourcePosition;
-			targetPositions[i] = shoots[i].targetPosition;
+			chutes[i].assignRandom();
+			sourcePositions[i] = chutes[i].sourcePosition;
+			targetPositions[i] = chutes[i].targetPosition;
 		}
 	}
 
@@ -61,14 +61,14 @@ Field::Field()
 	for(i=0; i<ladderCount; i++)
 	{
 		ladders[i].assignRandom();
-		sourcePositions[shootCount + i] = ladders[i].sourcePosition;
-		targetPositions[shootCount + i] = ladders[i].targetPosition;
+		sourcePositions[chuteCount + i] = ladders[i].sourcePosition;
+		targetPositions[chuteCount + i] = ladders[i].targetPosition;
 
-		while(checkDuplicate<int>(sourcePositions,shootCount+i,sourcePositions[shootCount+i]) || checkDuplicate<int>(targetPositions,shootCount+i,targetPositions[shootCount+i]))
+		while(checkDuplicate<int>(sourcePositions,chuteCount+i,sourcePositions[chuteCount+i]) || checkDuplicate<int>(targetPositions,chuteCount+i,targetPositions[chuteCount+i]))
 		{
 			ladders[i].assignRandom();
-			sourcePositions[shootCount + i] = ladders[i].sourcePosition;
-			targetPositions[shootCount + i] = ladders[i].targetPosition;
+			sourcePositions[chuteCount + i] = ladders[i].sourcePosition;
+			targetPositions[chuteCount + i] = ladders[i].targetPosition;
 
 		}
 	}
@@ -80,7 +80,7 @@ Field::Field()
 
 Field::~Field()
 {
-	delete[] shoots;
+	delete[] chutes;
 	delete[] ladders;
 }
 
@@ -91,12 +91,12 @@ int Field::getStatus(int pos)
 
 	if (pos >= 99) return 100;
 
-	for(i=0; i<shootCount; i++)
+	for(i=0; i<chuteCount; i++)
 	{
-		if(pos == shoots[i].sourcePosition)
+		if(pos == chutes[i].sourcePosition)
 		{
 			std::cout << "Too bad! Snake bit you." << std::endl;
-			return shoots[i].targetPosition;
+			return chutes[i].targetPosition;
 		}
 	}
 
@@ -183,14 +183,14 @@ void Field::print()
 
 			p = i*10 + k;
 
-			for (l=0; l<shootCount; l++)
+			for (l=0; l<chuteCount; l++)
 			{
-				if (p == shoots[l].sourcePosition)
+				if (p == chutes[l].sourcePosition)
 				{
 					std::cout << "| s" << l << " " ;
 					f = true;
 				}
-				else if (p == shoots[l].targetPosition)
+				else if (p == chutes[l].targetPosition)
 				{
 					std::cout << "|*s" << l << " " ;
 					f = true;
