@@ -1,6 +1,6 @@
-# ShootsAndLadders
+# ChutesAndLadders
 
-An implementation of shoots and ladders that plays by itself.
+An implementation of chutes and ladders that plays by itself.
 
 
 This is the result of a sleepless night, but might be useful as a simple C++ application. 
